@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import '../src/styles/logoloop.css';
+import './LogoLoop.css';
 
 export type LogoItem =
     | {
