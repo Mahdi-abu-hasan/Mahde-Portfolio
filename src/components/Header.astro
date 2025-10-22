@@ -1,0 +1,97 @@
+---
+const navItem = [
+  {
+    title: "Home",
+    link: "#home",
+  },
+  {
+    title: "About",
+    link: "#about",
+  },
+  {
+    title: "Projects",
+    link: "#projects",
+  },
+  {
+    title: "Skills",
+    link: "#skills",
+  },
+  {
+    title: "Contact",
+    link: "#contact",
+  },
+];
+---
+
+<header class="header">
+  <p class="logo">Portfolio</p>
+
+  <nav>
+    <ul class="header-nav">
+      {
+        navItem.map((el) => (
+          <li>
+            <a href={el.link}>{el.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    background: var(--bg-secondary);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-nav li {
+    list-style: none;
+  }
+
+  .header-nav a {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .header-nav a:hover {
+    color: var(--accent);
+  }
+</style>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute("href") || "");
+      target?.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+</script>

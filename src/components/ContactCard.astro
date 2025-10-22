@@ -1,0 +1,34 @@
+---
+const { text, link } = Astro.props;
+const isMailto = link.startsWith("mailto:");
+---
+
+<a
+  href={link}
+  class="contact-card"
+  target={isMailto ? "_self" : "_blank"}
+  rel={isMailto ? undefined : "noopener noreferrer"}
+>
+  {text}
+</a>
+
+<style>
+  .contact-card {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .contact-card:hover {
+    background: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+  }
+</style>

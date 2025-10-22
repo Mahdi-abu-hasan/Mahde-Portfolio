@@ -1,0 +1,83 @@
+---
+import AnimatedTitle from "../components/AnimatedTitle.jsx";
+---
+
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <AnimatedTitle
+      className="animated-title"
+      client:load
+      text="Hi, I’m Mahde Abu Al-Hasan 👋"
+    />
+    <p>Full-Stack Web Developer & Designer</p>
+    <a href="#projects" class="cta-button">View My Work</a>
+  </div>
+</section>
+
+<style is:global>
+  .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(99, 102, 241, 0.1) 0%,
+      transparent 50%
+    );
+    animation: pulse 8s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero .animated-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .hero p,
+  #contact p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+  }
+</style>

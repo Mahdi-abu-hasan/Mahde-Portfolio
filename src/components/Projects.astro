@@ -1,0 +1,49 @@
+---
+import ProjectCard from "./projectCard.astro";
+
+const projects = [
+  {
+    title: "Takaful Dashboard",
+    desc: "A modern insurance management dashboard that provides real-time analytics, user statistics, and policy insights. Built for smooth performance and intuitive visualization.",
+    techs: ["Next js", "TypeScript", "Tailwind", "Node.js"],
+    github: "https://github.com/Mahdi-abu-hasan/webDashboardTakaful",
+    demo: "#",
+  },
+  {
+    title: "Takaful Mobile App",
+    desc: "A responsive mobile interface for Takaful users to view their policies, submit claims, and track updates seamlessly on the go.",
+    techs: ["React Native", "Expo", "Tailwind", "REST API"],
+    github: "https://github.com/Mahdi-abu-hasan/Takafuk-Frontend-Mobile",
+    demo: "#",
+  },
+];
+---
+
+<section id="projects">
+  <h2>Featured Projects</h2>
+  <div class="projects-grid">
+    {projects.map((p) => <ProjectCard {...p} />)}
+  </div>
+</section>
+
+<style is:global>
+  #projects {
+    margin-top:20px
+    padding: 5rem 1rem;
+    text-align: center;
+  }
+
+  #projects h2 {
+    font-size: 2.5rem;
+    color: var(--accent-light);
+    margin-bottom: 3rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
